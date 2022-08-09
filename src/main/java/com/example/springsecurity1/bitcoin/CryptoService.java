@@ -14,7 +14,7 @@ public class CryptoService {
 
     public BigDecimal getCryptoPrice(String cryptoName) {
         try {
-            String apiURL = cryptoURL(cryptoName);
+            String apiURL = "https://api.coincap.io/v2/assets/" + cryptoName;
             // We use the RestTemplate class to make a request to the URL for the Joke API
             RestTemplate restTemplate = new RestTemplate();
             // We use the getForObject() method and tell it to take the return of the call to the URL and convert its JSON return to a Java object

@@ -30,7 +30,7 @@ public class CryptoControllerIntegrationTest {
     void getPrice() throws Exception {
         BigDecimal value = BigDecimal.valueOf(23931.5186364977489630);
 
-        Mockito.when(cryptoService.getCryptoPrice()).thenReturn(value);
+        Mockito.when(cryptoService.getCryptoPrice("bitcoin")).thenReturn(value);
         // perform() method lets us pass in a http verb, along with the appropriate parameters for that call.
         // In this case, we are asking for a GET request to be executed and pass in the URL to which it should be submitted.
         mockMvc.perform(get("/price"))

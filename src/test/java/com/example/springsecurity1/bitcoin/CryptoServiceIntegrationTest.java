@@ -11,7 +11,7 @@ public class CryptoServiceIntegrationTest {
     @Test // passed
     void shouldReturnPrice() {
         CryptoService bitCoinService = new CryptoService();
-        BigDecimal currentPrice = bitCoinService.getCryptoPrice();
+        BigDecimal currentPrice = bitCoinService.getCryptoPrice("bitcoin");
         assertThat(currentPrice).isNotNull();
     }
 
@@ -26,9 +26,9 @@ public class CryptoServiceIntegrationTest {
     @Test // passed
     void shouldReturnConstantBitcoinPrice() {
         CryptoService cryptoService = new CryptoService();
-        BigDecimal firstBitcoinPrice = cryptoService.getCryptoPrice();
+        BigDecimal firstBitcoinPrice = cryptoService.getCryptoPrice("bitcoin");
         assertThat(firstBitcoinPrice).isNotNull();
-        BigDecimal secondBitcoinPrice = cryptoService.getCryptoPrice();
+        BigDecimal secondBitcoinPrice = cryptoService.getCryptoPrice("bitcoin");
         assertThat(secondBitcoinPrice).isNotNull();
         assertThat(firstBitcoinPrice).isEqualTo(secondBitcoinPrice);
     }

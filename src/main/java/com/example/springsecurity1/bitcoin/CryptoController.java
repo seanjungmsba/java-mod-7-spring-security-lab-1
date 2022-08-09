@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 
-@RestController("/BTC")
+@RestController()
 public class CryptoController {
 
     // We create a private instance variable jokeService to get access to the service's methods
@@ -19,8 +19,8 @@ public class CryptoController {
         this.cryptoService = cryptoService;
     }
 
-    @GetMapping("/price")
-    public BigDecimal getCryptoPrice(String cryptoName) {
+    @GetMapping("/{cryptoName}")
+    public BigDecimal getCryptoPrice(@PathVariable(value = "cryptoName") String cryptoName) {
         BigDecimal price = cryptoService.getCryptoPrice(cryptoName);
         return price;
     }
@@ -30,11 +30,4 @@ public class CryptoController {
         String id = cryptoService.getCryptoName();
         return id;
     }
-
-    @GetMapping("/{cryptoName}")
-    public String cryptoURL(@RequestParam(name = "cryptoname", defaultValue = "bitcoin")
-                                @PathVariable(value = "cryptoName") String cryptoName) {
-        return String.format("https://api.coincap.io/v2/assets/", cryptoName);
-    }
-
 }

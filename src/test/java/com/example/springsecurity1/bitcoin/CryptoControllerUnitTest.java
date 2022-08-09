@@ -14,9 +14,9 @@ class CryptoControllerUnitTest {
         CryptoService cryptoService = Mockito.mock(CryptoService.class);
         BigDecimal expected = BigDecimal.valueOf(23456.24);
         CryptoController cryptoController = new CryptoController(cryptoService);
-        when(cryptoService.getCryptoPrice()).thenReturn(expected);
+        when(cryptoService.getCryptoPrice("bitcoin")).thenReturn(expected);
         System.out.println("expected: " + expected); // 23456.24
-        BigDecimal actual = cryptoController.getCryptoPrice();
+        BigDecimal actual = cryptoController.getCryptoPrice("bitcoin");
         System.out.println("actual: " + actual);
         assertEquals(expected, actual);
     }

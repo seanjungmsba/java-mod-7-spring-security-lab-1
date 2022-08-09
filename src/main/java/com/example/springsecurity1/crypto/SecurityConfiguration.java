@@ -1,4 +1,4 @@
-package com.example.springsecurity1.bitcoin;
+package com.example.springsecurity1.crypto;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,14 +18,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-        // we could require the "admin" authority for both the /status and /hello URLs with the following configure() method
-        // NOTE: antMatchers can be chained and should be ordered from most specific to least specific,
-//        http.authorizeRequests()
-//                .antMatchers("/status")
-//                .hasAuthority("admin")
-//                .antMatchers("/hello")
-//                .hasAuthority("admin");
 
         http.authorizeRequests()
                 .anyRequest()
@@ -57,13 +49,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorities("read")
                 .build();
         userDetailService.createUser(user1);
-
-        // we have given our adminUser1 the "admin" authority.
-//        UserDetails adminUser1 = User.withUsername("admin")
-//                .password(passwordEncoder().encode("test"))
-//                .authorities("admin")
-//                .build();
-//        userDetailService.createUser(adminUser1);
 
         return userDetailService;
     }

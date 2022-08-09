@@ -1,9 +1,6 @@
-package com.example.springsecurity1.bitcoin;
+package com.example.springsecurity1.crypto;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
@@ -32,9 +29,9 @@ public class CryptoService {
         return null;
     }
 
-    public String getCryptoName() {
+    public String getCryptoName(String cryptoName) {
         try {
-            String apiURL = "https://api.coincap.io/v2/assets/bitcoin/";
+            String apiURL = "https://api.coincap.io/v2/assets/" + cryptoName;;
             // We use the RestTemplate class to make a request to the URL for the Joke API
             RestTemplate restTemplate = new RestTemplate();
             // We use the getForObject() method and tell it to take the return of the call to the URL and convert its JSON return to a Java object

@@ -1,6 +1,5 @@
-package com.example.springunittesting2.dadjoke;
+package com.example.springsecurity1.dadjoke;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

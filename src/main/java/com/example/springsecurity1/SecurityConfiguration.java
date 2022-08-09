@@ -1,4 +1,4 @@
-package com.example.springunittesting2;
+package com.example.springsecurity1;
 
 //import org.springframework.context.annotation.Configuration;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;

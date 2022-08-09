@@ -1,4 +1,4 @@
-package com.example.springunittesting2.dadjoke;
+package com.example.springsecurity1.dadjoke;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

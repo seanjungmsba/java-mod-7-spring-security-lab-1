@@ -1,4 +1,4 @@
-package com.example.springunittesting2.dadjoke;
+package com.example.springsecurity1.dadjoke;
 
 /*
 The main differences between this "Acceptance" test and our earlier "Integration" test are:

@@ -19,7 +19,7 @@ public class CryptoService {
             // The getForObject method takes care of converting JSON to Java and returns an object of type DadJoke
             // We can then take the joke property of the DadJoke object and return it to the caller
             Data data = restTemplate.getForObject(apiURL, Data.class);
-            cryptoData cryptoData = data.getData();
+            CryptoData cryptoData = data.getData();
             BigDecimal cryptoPrice = cryptoData.getPriceUsd();
             return cryptoPrice;
         } catch (Exception e) {
@@ -39,7 +39,7 @@ public class CryptoService {
             // The getForObject method takes care of converting JSON to Java and returns an object of type DadJoke
             // We can then take the joke property of the DadJoke object and return it to the caller
             Data data = restTemplate.getForObject(apiURL, Data.class);
-            cryptoData cryptoData = data.getData();
+            CryptoData cryptoData = data.getData();
             String bitcoinId = cryptoData.getId();
             return bitcoinId;
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class CryptoService {
 
 }
 
-class cryptoData {
+class CryptoData {
     public String id;
     public BigDecimal priceUsd;
 
@@ -73,11 +73,11 @@ class cryptoData {
 }
 
 class Data {
-    private cryptoData data;
-    public cryptoData getData() {
+    private CryptoData data;
+    public CryptoData getData() {
         return data;
     }
-    public void setData(cryptoData data) {
+    public void setData(CryptoData data) {
         this.data = data;
     }
 }

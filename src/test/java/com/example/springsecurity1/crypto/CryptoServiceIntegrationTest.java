@@ -8,8 +8,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CryptoServiceIntegrationTest {
 
-
-
     @Test // passed
     void shouldReturnPrice() {
         String cryptoName = "bitcoin";

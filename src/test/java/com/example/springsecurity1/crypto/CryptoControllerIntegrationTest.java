@@ -29,14 +29,14 @@ public class CryptoControllerIntegrationTest {
 
     @WithMockUser(username = "fakeuser", authorities = "read")
     @Test
-    void getPrice() throws Exception {
-        BigDecimal value = BigDecimal.valueOf(23218.3479504872028595);
+    void getPrice() throws Exception { // confirms that getPrice() method in Controller class works
+        BigDecimal value = BigDecimal.valueOf(1);
         String cryptoName = "bitcoin";
 
         Mockito.when(cryptoService.getCryptoPrice(cryptoName)).thenReturn(value);
         // perform() method lets us pass in a http verb, along with the appropriate parameters for that call.
         // In this case, we are asking for a GET request to be executed and pass in the URL to which it should be submitted.
-        mockMvc.perform(get("/crypto/bitcoin"))
+        mockMvc.perform(get("/crypto/price/bitcoin"))
                 // andDo(print()) call asks mockMvc to results of perform() call to the console - we can use this to diagnose potential issues
                 .andDo(print())
                 // andExpect(status().isOk()) call tells mockMvc that we want an HTTP status code of 200 to be returned as a result of perform() call
@@ -47,13 +47,13 @@ public class CryptoControllerIntegrationTest {
 
     @WithMockUser(username = "fakeuser", authorities = "read")
     @Test
-    void getId() throws Exception {
-        String cryptoName = "bitcoin";
+    void getId() throws Exception { // confirms that getId() method in Controller class works
+        String cryptoName = "fakecoin";
 
         Mockito.when(cryptoService.getCryptoName(cryptoName)).thenReturn(cryptoName);
         // perform() method lets us pass in a http verb, along with the appropriate parameters for that call.
         // In this case, we are asking for a GET request to be executed and pass in the URL to which it should be submitted.
-        mockMvc.perform(get("/crypto/bitcoin"))
+        mockMvc.perform(get("/crypto/name/fakecoin"))
                 // andDo(print()) call asks mockMvc to results of perform() call to the console - we can use this to diagnose potential issues
                 .andDo(print())
                 // andExpect(status().isOk()) call tells mockMvc that we want an HTTP status code of 200 to be returned as a result of perform() call
